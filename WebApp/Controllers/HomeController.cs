@@ -20,6 +20,13 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public IActionResult Articles()
+        {
+            var model = new ArticleViewModel();
+            model.Articles = new ArticleRepository().GetLastest();
+            return View(model);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
